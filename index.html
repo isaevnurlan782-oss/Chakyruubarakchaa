@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="ky">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joki & Ariel | Wedding Invitation</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Georgia, serif;
+            background: #faf7f1;
+            color: #554638;
+            text-align: center;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 30px;
+            background: linear-gradient(#fffaf2, #f1e6d7);
+        }
+
+        .monogram {
+            font-size: 65px;
+            color: #b99a62;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: clamp(42px, 8vw, 75px);
+            color: #aa8954;
+            font-weight: normal;
+            margin: 20px 0;
+        }
+
+        .subtitle {
+            letter-spacing: 4px;
+            font-size: 13px;
+            margin-bottom: 30px;
+        }
+
+        button {
+            padding: 15px 30px;
+            background: #b99a62;
+            border: none;
+            color: white;
+            cursor: pointer;
+            letter-spacing: 2px;
+            border-radius: 30px;
+        }
+
+        section {
+            padding: 75px 20px;
+            max-width: 850px;
+            margin: auto;
+        }
+
+        h2 {
+            color: #b99a62;
+            font-size: 32px;
+            font-weight: normal;
+            margin-bottom: 25px;
+        }
+
+        p {
+            line-height: 1.9;
+            font-size: 17px;
+        }
+
+        .date {
+            font-size: 25px;
+            color: #aa8954;
+            margin: 20px;
+        }
+
+        .details {
+            background: #f1e8db;
+            padding: 35px;
+            border-radius: 20px;
+        }
+
+        .timer {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .timer div {
+            background: white;
+            padding: 20px;
+            min-width: 90px;
+            border-radius: 12px;
+            color: #aa8954;
+        }
+
+        .timer strong {
+            display: block;
+            font-size: 28px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 14px;
+            margin: 10px 0;
+            border: 1px solid #d8c6a6;
+            border-radius: 10px;
+            background: white;
+        }
+
+        .footer {
+            background: #efe4d4;
+            padding: 60px 20px;
+        }
+
+        .footer h2 {
+            margin-bottom: 10px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        a {
+            color: #aa8954;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="hero" id="opening">
+    <div class="monogram">J & A</div>
+    <p class="subtitle">СИЗДЕР ҮЧҮН ӨЗГӨЧӨ ЧАКЫРУУ</p>
+    <button onclick="openInvitation()">ЧАКЫРУУНУ АЧУУ</button>
+</div>
+
+<main id="invitation" class="hidden">
+
+    <section>
+        <p>Биздин сүйүү баяныбыздын</p>
+        <h1>Joki & Ariel</h1>
+        <p>өзгөчө күнүнө кош келиңиздер!</p>
+        <div class="date">30 • 12 • 2026</div>
+    </section>
+
+    <section>
+        <h2>Чакыруу</h2>
+        <p>
+            Урматтуу туугандар, достор жана жакындарыбыз!
+            <br><br>
+            Сиздерди жашообуздагы эң маанилүү жана
+            кубанычтуу күндөрдүн бири болгон үйлөнүү
+            үлпөт тоюбузга чакырабыз!
+            <br><br>
+            Бул өзгөчө күнү биздин кубанычыбызды тең
+            бөлүшүп, бактыбызга күбө болуп, биз менен
+            бирге болушуңуздарды каалайбыз.
+            <br><br>
+            Сиздерди чыдамсыздык менен күтөбүз!
+        </p>
+    </section>
+
+    <section>
+        <h2>Тойго чейин</h2>
+        <div class="timer">
+            <div><strong id="days">0</strong>Күн</div>
+            <div><strong id="hours">0</strong>Саат</div>
+            <div><strong id="minutes">0</strong>Мүнөт</div>
+            <div><strong id="seconds">0</strong>Секунд</div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Өзгөчө күн</h2>
+        <div class="details">
+            <p><strong>Күнү:</strong> 30-декабрь, 2026-жыл</p>
+            <p><strong>Убактысы:</strong> 17:00</p>
+            <p><strong>Ресторан:</strong> Кенч рестораны</p>
+            <p><strong>Дареги:</strong> Кочкор району</p>
+            <br>
+            <a href="https://www.google.com/maps/search/?api=1&query=Кенч+рестораны+Кочкор"
+               target="_blank">
+                Картадан көрүү
+            </a>
+        </div>
+    </section>
+
+    <section>
+        <h2>Музыка</h2>
+        <audio id="music" loop>
+            <source src="assets/ozgocho-kun.mp3" type="audio/mpeg">
+        </audio>
+        <button onclick="toggleMusic()" id="musicButton">
+            Музыканы күйгүзүү
+        </button>
+    </section>
+
+    <section>
+        <h2>Сизди күтөбүз!</h2>
+        <p>Тойго катыша аласызбы?</p>
+
+        <input type="text" id="guestName"
+               placeholder="Аты-жөнүңүз">
+
+        <select id="guestAnswer">
+            <option value="Ооба, сөзсүз келем!">
+                Ооба, сөзсүз келем!
+            </option>
+            <option value="Тилекке каршы, келе албайм">
+                Тилекке каршы, келе албайм
+            </option>
+        </select>
+
+        <button onclick="sendRSVP()">Жооп жөнөтүү</button>
+    </section>
+
+    <div class="footer">
+        <p>Сүйүү менен,</p>
+        <h2>Joki & Ariel</h2>
+        <br>
+        <p>Той ээлери:</p>
+        <h2>Бектурсун & Гүлжанат</h2>
+    </div>
+
+</main>
+
+<script>
+    const WHATSAPP_NUMBER = "996XXXXXXXXX";
+
+    function openInvitation() {
+        document.getElementById("opening").style.display = "none";
+        document.getElementById("invitation").classList.remove("hidden");
+
+        const music = document.getElementById("music");
+
+        music.play().then(() => {
+            document.getElementById("musicButton").textContent =
+                "Музыканы өчүрүү";
+        }).catch(() => {});
+    }
+
+    function toggleMusic() {
+        const music = document.getElementById("music");
+        const button = document.getElementById("musicButton");
+
+        if (music.paused) {
+            music.play().then(() => {
+                button.textContent = "Музыканы өчүрүү";
+            }).catch(() => {
+                button.textContent = "Кайра басып көрүңүз";
+            });
+        } else {
+            music.pause();
+            button.textContent = "Музыканы күйгүзүү";
+        }
+    }
+
+    const weddingDate = new Date("2026-12-30T17:00:00+06:00");
+
+    function updateTimer() {
+        const now = new Date();
+        const difference = weddingDate - now;
+
+        if (difference <= 0) {
+            document.getElementById("days").textContent = 0;
+            document.getElementById("hours").textContent = 0;
+            document.getElementById("minutes").textContent = 0;
+            document.getElementById("seconds").textContent = 0;
+            return;
+        }
+
+        document.getElementById("days").textContent =
+            Math.floor(difference / (1000 * 60 * 60 * 24));
+
+        document.getElementById("hours").textContent =
+            Math.floor((difference / (1000 * 60 * 60)) % 24);
+
+        document.getElementById("minutes").textContent =
+            Math.floor((difference / (1000 * 60)) % 60);
+
+        document.getElementById("seconds").textContent =
+            Math.floor((difference / 1000) % 60);
+    }
+
+    updateTimer();
+    setInterval(updateTimer, 1000);
+
+    function sendRSVP() {
+        const name = document.getElementById("guestName").value.trim();
+        const answer = document.getElementById("guestAnswer").value;
+
+        if (!name) {
+            alert("Атыңызды жазыңыз!");
+            return;
+        }
+
+        if (WHATSAPP_NUMBER === "996XXXXXXXXX") {
+            alert("Алгач WhatsApp номерин коддон өзгөртүңүз.");
+            return;
+        }
+
+        const message =
+            "Саламатсыздарбы! Менин аты-жөнүм: " + name +
+            ". Жооп: " + answer;
+
+        const url = "https://wa.me/" + WHATSAPP_NUMBER +
+            "?text=" + encodeURIComponent(message);
+
+        window.open(url, "_blank");
+    }
+</script>
+
+</body>
+  </html>
